@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  team-service:
+    build: .
+    container_name: team-service
+    ports:
+      - "8081:8081"
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - MONGO_DB=teamsdb

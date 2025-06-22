@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   postgres:
     image: postgres:15
@@ -8,18 +10,24 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=SS29lose
       - POSTGRES_DB=usersdb
+    networks:
+      - shared-network
 
   mongo:
     image: mongo:5
     container_name: mongo
     ports:
       - "27017:27017"
+    networks:
+      - shared-network
 
   redis:
     image: redis:7
     container_name: redis
     ports:
       - "6379:6379"
+    networks:
+      - shared-network
 
   neo4j:
     image: neo4j:5.14
@@ -40,11 +48,11 @@ services:
       - redis
     environment:
       - REDIS_URL=redis://redis:6379
+    ports:
+      - "3000:3000"  # <-- Habilita acceso al endpoint HTTP
     networks:
       - shared-network
 
 networks:
   shared-network:
     driver: bridge
-
-

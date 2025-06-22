@@ -11,4 +11,11 @@ services:
       - NEO4J_PASSWORD=admin
     depends_on:
       - neo4j
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true
+
 

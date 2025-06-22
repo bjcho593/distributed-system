@@ -1,0 +1,17 @@
+services:
+  login-service:
+    build:
+      context: ./login-service
+    container_name: login-service
+    ports:
+      - "8084:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - mysql
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true

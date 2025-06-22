@@ -32,17 +32,6 @@ services:
     networks:
       - shared-network
 
-  auth-mysql:
-    image: mysql:8
-    container_name: auth-mysql
-    ports:
-      - "3307:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=SS29lose
-      - MYSQL_DATABASE=usersdb
-    networks:
-      - shared-network
-
 networks:
   shared-network:
     driver: bridge

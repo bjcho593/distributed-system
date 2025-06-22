@@ -10,7 +10,7 @@ namespace login_service.Controllers
         public IActionResult Login([FromBody] LoginRequest request)
         {
             // Aquí podrías conectar a MySQL para validar usuario
-            if (request.Username == "admin" && request.Password == "admin123")
+            if (request.Username == "admin" && request.Password == "SS29lose")
                 return Ok(new { message = "Login exitoso" });
 
             return Unauthorized(new { message = "Credenciales inválidas" });

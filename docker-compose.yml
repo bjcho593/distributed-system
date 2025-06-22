@@ -27,7 +27,14 @@ services:
     image: neo4j:5.14
     container_name: neo4j
     ports:
-      - "7474:7474"   # interfaz web
-      - "7687:7687"   # bolt (para el driver)
+      - "7474:7474"   # Interfaz web de Neo4j
+      - "7687:7687"   # Protocolo Bolt para drivers
     environment:
       - NEO4J_AUTH=neo4j/admin
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    driver: bridge
+

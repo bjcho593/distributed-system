@@ -22,3 +22,12 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
+
+  neo4j:
+    image: neo4j:5.14
+    container_name: neo4j
+    ports:
+      - "7474:7474"   # interfaz web
+      - "7687:7687"   # bolt (para el driver)
+    environment:
+      - NEO4J_AUTH=neo4j/admin

@@ -30,7 +30,7 @@ services:
       - "7474:7474"   # Interfaz web de Neo4j
       - "7687:7687"   # Protocolo Bolt para drivers
     environment:
-      - NEO4J_AUTH=neo4j/admin
+      - NEO4J_AUTH=neo4j/SS29lose
     networks:
       - shared-network
 
